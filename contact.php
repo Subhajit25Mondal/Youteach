@@ -76,6 +76,6 @@
       echo "<script>alert(\"Message sending failed.\");</script>";
     }
 
-    mysql_close($con);
+    mysqli_close($con);
   }
 ?>

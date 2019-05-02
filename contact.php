@@ -77,5 +77,6 @@
     }
 
     mysqli_close($con);
+    exit();
   }
 ?>

@@ -36,7 +36,7 @@
               <div class="fr-wrapper" dir="auto">
                 <div aria-disabled="false" class="fr-element fr-view" dir="auto"
                   spellcheck="true">
-                  <p><input type="text" class="form-control" placeholder="Full Name" name="name"></p>
+                  <p><input type="text" class="form-control" placeholder="Full Name" name="name" required></p>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@
               <div class="fr-wrapper" dir="auto">
                 <div aria-disabled="false" class="fr-element fr-view" dir="auto"
                   spellcheck="true">
-                  <p><input type="email" class="form-control" placeholder="Email" name="email"></p>
+                  <p><input type="email" class="form-control" placeholder="Email" name="email" required></p>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@
               <div class="fr-wrapper" dir="auto">
                 <div aria-disabled="false" class="fr-element fr-view" dir="auto"
                   spellcheck="true">
-                  <p><input type="password" class="form-control" placeholder="Password" name="pass1"></p>
+                  <p><input type="password" class="form-control" placeholder="Password" name="pass1" required></p>
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@
               <div class="fr-wrapper" dir="auto">
                 <div aria-disabled="false" class="fr-element fr-view" dir="auto"
                   spellcheck="true">
-                  <p><input type="password" class="form-control" placeholder="Confirm Password" name="pass2"></p>
+                  <p><input type="password" class="form-control" placeholder="Confirm Password" name="pass2" required></p>
                 </div>
               </div>
             </div>

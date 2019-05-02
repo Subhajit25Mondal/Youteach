@@ -30,12 +30,13 @@
               </div>
             </div>
           </div>
+          <form method="POST" action="register/auth.php">
           <div class="row align-items-center">
             <div class="col mt-4 fr-box" role="application" style="z-index: 10000;">
               <div class="fr-wrapper" dir="auto">
                 <div aria-disabled="false" class="fr-element fr-view" dir="auto"
                   spellcheck="true">
-                  <p><input type="text" class="form-control" placeholder="Full Name" value=""></p>
+                  <p><input type="text" class="form-control" placeholder="Full Name" name="name"></p>
                 </div>
               </div>
             </div>
@@ -45,7 +46,7 @@
               <div class="fr-wrapper" dir="auto">
                 <div aria-disabled="false" class="fr-element fr-view" dir="auto"
                   spellcheck="true">
-                  <p><input type="email" class="form-control" placeholder="Email" value=""></p>
+                  <p><input type="email" class="form-control" placeholder="Email" name="email"></p>
                 </div>
               </div>
             </div>
@@ -55,7 +56,7 @@
               <div class="fr-wrapper" dir="auto">
                 <div aria-disabled="false" class="fr-element fr-view" dir="auto"
                   spellcheck="true">
-                  <p><input type="password" class="form-control" placeholder="Password" value=""></p>
+                  <p><input type="password" class="form-control" placeholder="Password" name="pass1"></p>
                 </div>
               </div>
             </div>
@@ -63,12 +64,13 @@
               <div class="fr-wrapper" dir="auto">
                 <div aria-disabled="false" class="fr-element fr-view" dir="auto"
                   spellcheck="true">
-                  <p><input type="password" class="form-control" placeholder="Confirm Password" value=""></p>
+                  <p><input type="password" class="form-control" placeholder="Confirm Password" name="pass2"></p>
                 </div>
               </div>
             </div>
           </div>
-          <center><p><button class="btn btn-primary mt-4">Submit</button></p></center>
+          <center><p><button class="btn btn-primary mt-4" type="submit" name="submit">Submit</button></p></center>
+          </form>
         </div>
       </div>
     </div>

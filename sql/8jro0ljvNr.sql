@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 18, 2019 at 08:38 AM
+-- Generation Time: Apr 27, 2019 at 09:22 PM
 -- Server version: 8.0.13-4
--- PHP Version: 7.2.15-0ubuntu0.18.04.2
+-- PHP Version: 7.2.17-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -37,6 +37,20 @@ CREATE TABLE `booking` (
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `training_date` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `reg_date` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `subject` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `body` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------

@@ -38,6 +38,20 @@
         </script>";
     }
 
+    function redirect($email){
+        include("../connect.php");
+        $sql = "SELECT inst_id FROM inst WHERE email='$email'";
+        $res = mysqli_query($con, $sql);
+        if (mysqli_num_rows($res) > 0) {
+            $row = mysqli_fetch_assoc($res);
+            $link = "details.php?id=".$row[inst_id];
+            echo "<script>
+            window.location.href = \"$link\";
+            </script>";
+        }
+
+    }
+
     if(isset($_POST['submit'])) {
         if($_POST['pass1'] == $_POST['pass2']){
             if(check($_POST['email'])==1){
@@ -53,7 +67,7 @@
 
                 $query = "INSERT INTO inst (name, date, email, pass) VALUES ('$name', '$date_time', '$email', '$pass')";
                 $results = mysqli_query($con, $query);
-                echo 'Saved!';
+                redirect($email);
                 exit();
             }
             else{

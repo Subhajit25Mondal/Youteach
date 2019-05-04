@@ -1,3 +1,8 @@
+<?php
+ include("geolocation.php");
+ $id = $_GET["id"];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +14,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
   <link rel="stylesheet" href="../css/css/froala_editor.pkgd.min.css">
   <link rel="stylesheet" href="../css/css/froala_style.min.css"> 
+  <script>
+
+    
+  </script>
   <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
   <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
   <script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
@@ -23,8 +32,9 @@
             </div>
             <br>
             <div id="map" style="width: auto; height: 450px; background: grey"></div>
-
-            <form>
+<br>
+            <form method="POST" action="details.php">
+                <input type="text" id="id" name="id" hidden>
                 <input type="text" id="lat" name="lat" hidden>
                 <input type="text" id="lng" name="lng" hidden>
                 <center><p><button class="btn btn-primary mt-4" type="submit" name="submit">Next Step >></button></p></center>
@@ -34,6 +44,9 @@
 
 
 <script>
+  
+  var lat_g = <?php echo "$lat"; ?>, lng_g = <?php echo "$lon"; ?>;
+  document.getElementById("id").value = <?php echo "$id"; ?>;
     
 /**
  * Adds a  draggable marker to the map..
@@ -45,7 +58,7 @@
  */
 function addDraggableMarker(map, behavior){
 
-var marker = new H.map.Marker({lat:42.35805, lng:-71.0636});
+var marker = new H.map.Marker({lat:lat_g, lng:lng_g});
 // Ensure that the marker can receive drag events
 marker.draggable = true;
 map.addObject(marker);
@@ -101,8 +114,8 @@ var defaultLayers = platform.createDefaultLayers();
 //Step 2: initialize a map - this map is centered over Boston
 var map = new H.Map(document.getElementById('map'),
 defaultLayers.normal.map,{
-center: {lat:42.35805, lng:-71.0636},
-zoom: 12
+center: {lat:lat_g, lng:lng_g},
+zoom: 10
 });
 
 //Step 3: make the map interactive
@@ -120,5 +133,32 @@ $('head').append('<link rel="stylesheet" href="../css/css/mapsjs-ui.css" type="t
 
     
 </script>
+
+
 </body>
+
 </html>
+
+<?php 
+
+if(isset($_POST['submit'])) { 
+  include("../connect.php");
+  $id = $_POST['id'];
+  $latt = $_POST['lat'];
+  $lngg = $_POST['lng'];
+  $sql = "UPDATE inst SET lat = '$latt',lon = '$lngg' WHERE inst_id = $id;";
+  $results = mysqli_query($con, $sql);
+  if($results){
+  $redirect = "details2.php?id=".$id;
+  echo "<script>
+            window.location.href = \"$redirect\";
+            </script>";
+  }
+  else{
+    echo "<script>
+    alert(\"Data not uploaded. Please contact admin.\");
+    </script>";
+  }
+}
+
+?>

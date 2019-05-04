@@ -23,19 +23,19 @@
             <div class="row">
               <div class="col">
                 <h1>Log In</h1>
-                <p class="lead">Instructors can login to their account to keep of track of the people who opted to learn.
+                <p class="lead">Instructors can login to their account to keep of track of the people who opted to learn from them.
                 </p>
               </div>
             </div>
-            <form method="POST" action="login.php">
+            <form method="POST" action="dashboard/dashboard.php">
             <div class="row">
-              <div class="col mt-4"><input type="text" class="form-control" placeholder="Email" name="email"></div>
+              <div class="col mt-4"><input type="email" class="form-control" placeholder="Email" name="email" required></div>
             </div>
             <div class="row mt-4">
-              <div class="col"><input type="password" class="form-control" placeholder="Password" name="pass"></div>
+              <div class="col"><input type="password" class="form-control" placeholder="Password" name="pass" required></div>
             </div>
             <div class="row mt-4">
-              <div class="col"><button class="btn btn-secondary" type="button">Submit</button></div>
+              <div class="col"><button class="btn btn-secondary" type="submit" name="submit">Submit</button></div>
             </div>
             </form>
           </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 02, 2019 at 09:48 PM
+-- Generation Time: May 05, 2019 at 01:02 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -33,11 +33,19 @@ CREATE TABLE `booking` (
   `inst_id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` bigint(20) NOT NULL,
+  `phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `training_date` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `reg_date` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`booking_id`, `inst_id`, `name`, `address`, `phone`, `email`, `training_date`, `reg_date`) VALUES
+(1, 1, 'Rajiv Singh', '43 Lal Bazaar, Kolkata 4444', '91997654323', 'rajiv@rajiv.com', '24 June 2019', '03-05-2019 (Fri) 02:19:58'),
+(2, 1, 'Gaurav Kumar', '99 Park Street, Kolkata 4444', '+9199776543210', 'gaurav@gaurav.com', '22 July 2019', '03-05-2019 (Fri) 02:19:58');
 
 -- --------------------------------------------------------
 
@@ -63,16 +71,23 @@ CREATE TABLE `contact` (
 CREATE TABLE `inst` (
   `inst_id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `lat` float(10,7) DEFAULT NULL,
-  `lon` float(10,7) DEFAULT NULL,
+  `lat` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lon` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `address` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` bigint(20) DEFAULT NULL,
+  `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `date` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `pass` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `bio` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `certificate` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL
+  `bio` longtext COLLATE utf8_unicode_ci,
+  `certificate` varchar(600) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `inst`
+--
+
+INSERT INTO `inst` (`inst_id`, `name`, `lat`, `lon`, `address`, `phone`, `date`, `email`, `pass`, `bio`, `certificate`) VALUES
+(1, 'John Deo', '22.585622194085055', '88.34406946768496', 'Howrah Railway Station, Kolkata 4444', '+91 9876543210', '03-05-2019 (Fri) 02:19:58', 'john@john.com', 'qw', 'I am a guy . Yo', 'https://drive.demo.com/cert.png');
 
 --
 -- Indexes for dumped tables
@@ -104,7 +119,7 @@ ALTER TABLE `inst`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -116,7 +131,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `inst`
 --
 ALTER TABLE `inst`
-  MODIFY `inst_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `inst_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

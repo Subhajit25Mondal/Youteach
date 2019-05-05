@@ -101,7 +101,7 @@ if(isset($_POST['submit'])) {
                 </div>
             </div>
             <div class=\"col-2\">
-                    <a href=\"acc_del?id=$id\"><button class=\"btn btn-danger btn-light btn-sm mt-4\" name=\"submit\">Delete Account</button></a>
+                    <a href=\"acc_del.php?id=$id\"><button class=\"btn btn-danger btn-light btn-sm mt-4\" name=\"submit\">Delete Account</button></a>
                     <a href=\"../update/map.php?id=$id\"><button class=\"btn btn-outline-primary mt-4\" name=\"submit\">Edit Location</button></a>
                     <a href=\"../update/details.php?id=$id\"><button class=\"btn btn-dark mt-4\" name=\"submit\">Edit Details</button></a>
             </div>
@@ -157,7 +157,7 @@ if(isset($_POST['submit'])) {
             People who opted you for Stop the Bleed training : <br><br>";
 
   include("../connect.php");
-  $sql = "SELECT * FROM booking WHERE inst_id=$id";
+  $sql = "SELECT * FROM booking WHERE inst_id=$id ORDER BY booking_id DESC";
   $results = mysqli_query($con, $sql);
   if (mysqli_num_rows($results) > 0) {
     

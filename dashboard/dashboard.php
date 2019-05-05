@@ -95,13 +95,14 @@ if(isset($_POST['submit'])) {
             <div class=\"col-10\">
                 <div aria-disabled=\"false\" class=\"fr-element fr-view\" dir=\"auto\" spellcheck=\"true\">
                 <h1>$name</h1>
-                <p>Email : <b>$email </b>   (Phone No. <b>$phone</b>)   $date  <br> 
-                    $bio <br> $address <br> 
+                <p>$address <br> Email : <b>$email </b>   (Phone No. <b>$phone</b>)   $date  <br> 
+                    $bio <br> 
                 <a href=\"$certificate\">Certificate</a></p>
                 </div>
             </div>
             <div class=\"col-2\">
-                    <a href=\"../update/map.php?id=$id\"><button class=\"btn btn-primary mt-4\" name=\"submit\">Edit Location</button></a>
+                    <a href=\"acc_del?id=$id\"><button class=\"btn btn-danger btn-light btn-sm mt-4\" name=\"submit\">Delete Account</button></a>
+                    <a href=\"../update/map.php?id=$id\"><button class=\"btn btn-outline-primary mt-4\" name=\"submit\">Edit Location</button></a>
                     <a href=\"../update/details.php?id=$id\"><button class=\"btn btn-dark mt-4\" name=\"submit\">Edit Details</button></a>
             </div>
         </div>
@@ -162,14 +163,14 @@ if(isset($_POST['submit'])) {
     
   while($row = mysqli_fetch_assoc($results)){
     //$row['inst_id'];
-    echo "<div class=\"card\" style=\"margin-bottom : 15px\">
+    echo "<div class=\"card border-dark mb-3\" style=\"margin-bottom : 15px\">
     <div class=\"row\">
         <div class=\"col-10\">
             <div class=\"card-body\">
                 <h5 class=\"card-title\">$row[name]</h5>
-                <h6 class=\"card-subtitle mb-2 text-muted\">$row[email] (Phone: $row[phone])</h6>
+                <h5 class=\"card-subtitle mb-2 text-muted\">$row[email] (Phone: $row[phone])</h5>
                 <p class=\"card-text\">$row[address] <br>
-                $row[training_date]</p>
+                <b>Training scheduled on <u>$row[training_date]</u></b> , <i>Registered on $row[reg_date]</i></p>
             </div>
         </div>
         <div class=\"col-2\">
@@ -180,7 +181,7 @@ if(isset($_POST['submit'])) {
   }
 }
 else{
-  echo "Nobody has opted you yet.";
+  echo "<center><p class=\"text-info\"><i>(Nobody has opted you yet)</i></p></center>";
 }
 echo "</div><br><br>
 </body>

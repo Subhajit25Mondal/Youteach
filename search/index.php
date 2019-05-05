@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,13 +64,9 @@
         ui.addBubble(bubble);
       }, false);
     
-      addMarkerToGroup(group, {lat:53.439, lng:-2.221},
-        '<div><a href=\'http://www.mcfc.co.uk\' >Manchester City</a>' +
-        '</div><div >City of Manchester Stadium<br>Capacity: 48,000</div>');
     
       addMarkerToGroup(group, {lat:53.430, lng:-2.961},
-        '<div ><a href=\'http://www.liverpoolfc.tv\' >Liverpool</a>' +
-        '</div><div >Anfield<br>Capacity: 45,362</div>');
+        '<div>Roman Roy<br><a href="book.php?id=3">Details</a></div>');
     
     }
     

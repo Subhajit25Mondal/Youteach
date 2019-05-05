@@ -1,4 +1,8 @@
+<?php 
 
+include("../register/geolocation.php");
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,10 +68,18 @@
         ui.addBubble(bubble);
       }, false);
     
+    <?php
+
+    include("../connect.php");
+    $sql = "SELECT * FROM inst";
+    $results = mysqli_query($con, $sql);
+    while($row = mysqli_fetch_assoc($results)){
+      
+      echo "addMarkerToGroup(group, {lat:$row[lat], lng:$row[lon]},
+        '<div>$row[name]<br><a href=\"book.php?id=$row[inst_id]\">Details</a></div>');";
     
-      addMarkerToGroup(group, {lat:53.430, lng:-2.961},
-        '<div>Roman Roy<br><a href="book.php?id=3">Details</a></div>');
-    
+      }
+    ?>
     }
     
     
@@ -91,8 +103,8 @@
     // initialize a map - this map is centered over Europe
     var map = new H.Map(document.getElementById('map'),
       defaultLayers.normal.map,{
-      center: {lat: 53.430, lng: -2.961},
-      zoom: 7,
+      center: {lat: <?php echo "$lat"; ?>, lng: <?php echo "$lon"; ?>},
+      zoom: 13,
       pixelRatio: pixelRatio
     });
     

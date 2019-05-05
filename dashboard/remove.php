@@ -32,6 +32,7 @@
             function goBack() {
                 alert(\"Please reload the Dashboard page to update the data!\");
             window.history.back();
+            location.reload(1);
             }
             </script>
         </div>

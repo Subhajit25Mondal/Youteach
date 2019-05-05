@@ -38,6 +38,16 @@
     </div>
   </div>
 </section>
+
+<section class="fdb-block bg-dark">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2>Made with ❤️ by Subhajit Mondal</h2>
+          </div>
+        </div>
+      </div>
+    </section>
   
 </body>
 </html>

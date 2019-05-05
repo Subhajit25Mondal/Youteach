@@ -1,4 +1,7 @@
-<?php $id = $_GET["id"]; ?>
+<?php 
+error_reporting(0);
+$id = $_GET["id"]; 
+?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
  include("geolocation.php");
  $id = $_GET["id"];
 ?>

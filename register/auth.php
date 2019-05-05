@@ -15,7 +15,8 @@
 
 
 <?php 
-    
+    error_reporting(0);
+
     function check($email){
         include("../connect.php");
         $sql_e = "SELECT * FROM inst WHERE email='$email'";

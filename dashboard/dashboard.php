@@ -1,5 +1,3 @@
-
-
 <?php 
 if(isset($_POST['submit'])) {
   include("../connect.php");
@@ -12,8 +10,16 @@ if(isset($_POST['submit'])) {
         $row = mysqli_fetch_assoc($results);
         $id = $row['inst_id'];
         $name = $row['name'];
+        $lat = $row['lat'];
+        $lon = $row['lon'];
+        $address = $row['address'];
+        $phone = $row['phone'];
+        $date = $row['date'];
+        $email = $row['email'];
+        $bio = $row['bio'];
+        $certificate = $row['certificate'];
         head("$name : Dashboard");
-        echo "Welcome";
+        body($id, $name, $lat, $lon, $address, $phone, $date, $email, $bio, $certificate);
     }
     else{
       wrong_email();
@@ -71,5 +77,114 @@ if(isset($_POST['submit'])) {
      <link rel=\"stylesheet\" href=\"../css/css/froala_style.min.css\">
    </head>";
  }
+
+ function body($id, $name, $lat, $lon, $address, $phone, $date, $email, $bio, $certificate){
+
+  echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1549984893\" />
+  <script type=\"text/javascript\" src=\"https://js.api.here.com/v3/3.0/mapsjs-core.js\"></script>
+  <script type=\"text/javascript\" src=\"https://js.api.here.com/v3/3.0/mapsjs-service.js\"></script>
+  <script type=\"text/javascript\" src=\"https://js.api.here.com/v3/3.0/mapsjs-ui.js\"></script>
+  <script type=\"text/javascript\" src=\"https://js.api.here.com/v3/3.0/mapsjs-mapevents.js\"></script>";
+
+  echo "</head>
+  <body>
+    <div id=\"map\" style=\"width: 100%; height: 300px; background: grey\"></div>
+
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-10\">
+                <div aria-disabled=\"false\" class=\"fr-element fr-view\" dir=\"auto\" spellcheck=\"true\">
+                <h1>$name</h1>
+                <p>Email : <b>$email </b>   (Phone No. <b>$phone</b>)   $date  <br> 
+                    $bio <br> $address <br> 
+                <a href=\"$certificate\">Certificate</a></p>
+                </div>
+            </div>
+            <div class=\"col-2\">
+                    <a href=\"../update/map.php?id=$id\"><button class=\"btn btn-primary mt-4\" name=\"submit\">Edit Location</button></a>
+                    <a href=\"../update/details.php?id=$id\"><button class=\"btn btn-dark mt-4\" name=\"submit\">Edit Details</button></a>
+            </div>
+        </div>
+    </div>
+
+<script  type=\"text/javascript\" charset=\"UTF-8\" >
+      
+  var lat_g = $lat, lng_g = $lon;
+
+  function addMarkersToMap(map) {
+    var parisMarker = new H.map.Marker({lat:lat_g, lng:lng_g});
+    map.addObject(parisMarker);
+  
+
+  }
+  
+  
+  var platform = new H.service.Platform({
+    app_id: 'T81U7W7QH7MsZOetXKcv',
+    app_code: '0UcgkmbLFcP4PF5EsLuJLg',
+    useHTTPS: true
+  });
+  var pixelRatio = window.devicePixelRatio || 1;
+  var defaultLayers = platform.createDefaultLayers({
+    tileSize: pixelRatio === 1 ? 256 : 512,
+    ppi: pixelRatio === 1 ? undefined : 320
+  });
+  
+  //Step 2: initialize a map - this map is centered over Europe
+  var map = new H.Map(document.getElementById('map'),
+    defaultLayers.normal.map,{
+    center: {lat:lat_g, lng:lng_g},
+    zoom: 13,
+    pixelRatio: pixelRatio
+  });
+  
+  //Step 3: make the map interactive
+  // MapEvents enables the event system
+  // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+  var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+  
+  // Create the default UI components
+  var ui = H.ui.UI.createDefault(map, defaultLayers);
+  
+  // Now use the map as required...
+  addMarkersToMap(map);
+</script>
+
+<!--Bookings-->
+    <br>
+    <div class=\"container\">
+            People who opted you for Stop the Bleed training : <br><br>";
+
+  include("../connect.php");
+  $sql = "SELECT * FROM booking WHERE inst_id=$id";
+  $results = mysqli_query($con, $sql);
+  if (mysqli_num_rows($results) > 0) {
+    
+  while($row = mysqli_fetch_assoc($results)){
+    //$row['inst_id'];
+    echo "<div class=\"card\" style=\"margin-bottom : 15px\">
+    <div class=\"row\">
+        <div class=\"col-10\">
+            <div class=\"card-body\">
+                <h5 class=\"card-title\">$row[name]</h5>
+                <h6 class=\"card-subtitle mb-2 text-muted\">$row[email] (Phone: $row[phone])</h6>
+                <p class=\"card-text\">$row[address] <br>
+                $row[training_date]</p>
+            </div>
+        </div>
+        <div class=\"col-2\">
+            <a href=\"remove.php?id=$row[booking_id]\"><button class=\"btn btn-danger\" style=\"margin-top: 15px\">Remove</button></a>
+        </div>
+    </div>
+</div>";
+  }
+}
+else{
+  echo "Nobody has opted you yet.";
+}
+echo "</div><br><br>
+</body>
+</html>";
+}
 
 ?>

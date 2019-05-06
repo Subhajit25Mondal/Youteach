@@ -113,7 +113,7 @@ $row = mysqli_fetch_assoc($results);
     $timestamp = time();
     $date_time = date("d-m-Y (D) H:i:s", $timestamp);
 
-    $sql = "INSERT INTO booking (inst_id, name, address, phone, email, training_date, reg_date) VALUES ($id, '$name', '$address', '$phone', '$email', '$training_date', '$date_time')";
+    $sql = "INSERT INTO booking (inst_id, name, address, phone, email, training_date, reg_date) VALUES ($id, '$name', '$address', '$phone', '$email', '$date', '$date_time')";
     $results = mysqli_query($con,$sql);
     if($results){
       echo "<script>

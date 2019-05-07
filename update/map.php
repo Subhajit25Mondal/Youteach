@@ -108,8 +108,8 @@ map.addEventListener('dragend', function(ev) {
 
 //Step 1: initialize communication with the platform
 var platform = new H.service.Platform({
-app_id: 'DemoAppId01082013GAL',
-app_code: 'AJKnXv84fjrb0KIHawS0Tg',
+app_id: 'YOUR_APP_ID',
+app_code: 'YOUR_APP_CODE',
 useCIT: true,
 useHTTPS: true
 });

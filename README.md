@@ -12,9 +12,10 @@
  8. [License](#license)
 
  # Prerequisites
-    1. To deploy YouTeach in your local machine you need Apache server installed and running in your machine as well as the MySql and PHP engine installed and running.
 
-    2. [Here Maps Javascript API](https://developer.here.com) credentials are required to run the map scripts.
+1. To deploy YouTeach in your local machine you need Apache server installed and running in your machine as well as the MySql and PHP engine installed and running.
+
+2. [Here Maps Javascript API](https://developer.here.com) credentials are required to run the map scripts.
 
 # Screenshots
 

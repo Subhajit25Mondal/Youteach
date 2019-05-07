@@ -90,8 +90,8 @@ include("../register/geolocation.php");
     
     // initialize communication with the platform
     var platform = new H.service.Platform({
-      app_id: 'T81U7W7QH7MsZOetXKcv',
-      app_code: '0UcgkmbLFcP4PF5EsLuJLg',
+      app_id: 'YOUR_APP_ID',
+      app_code: 'YOUR_APP_CODE',
       useHTTPS: true
     });
     var pixelRatio = window.devicePixelRatio || 1;

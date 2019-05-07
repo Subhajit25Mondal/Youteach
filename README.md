@@ -1,4 +1,4 @@
-![ToyTeach Logo](https://user-images.githubusercontent.com/27961735/57253555-9fb92280-706c-11e9-8125-242edc2ebe19.png)
+![ToyTeach Logo](imgs/brand_l.png)
 ### You teach is an application which aims to connect people with Instructors, who which to get training for Stop the Bleed.
 
 # Quick Links
@@ -50,7 +50,7 @@ For deploying YouTeach to your system please follow the steps below :
     * `/dashboard/dashboard.php` (line no. 124, 125)
     * `/update/map.php` (line no. 111, 112)
 
-```
+```php
 /* Note: If you choose to create a Remote mySQL Database then also folow the above steps. 
 Only add a new section "PORT_NUMBER" in the function "mysqli_connect()" */
 

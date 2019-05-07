@@ -51,7 +51,8 @@ For deploying YouTeach to your system please follow the steps below :
     * `/update/map.php` (line no. 111, 112)
 
 ```
-/* Note: If you choose to create a Remote mySQL Database then also folow the above steps. Only add a new section "PORT_NUMBER" in the function "mysqli_connect()" */
+/* Note: If you choose to create a Remote mySQL Database then also folow the above steps. 
+Only add a new section "PORT_NUMBER" in the function "mysqli_connect()" */
 
 mysqli_connect('HOST_NAME*','USER_NAME','PASSWORD','DATABASE_NAME','PORT_NUMBER');
 ```

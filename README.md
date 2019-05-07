@@ -41,7 +41,7 @@ For deploying YouTeach to your system please follow the steps below :
 
     ```php
     <?php 
-    $con = mysqli_connect('HOST_NAME*','USER_NAME','PASSWORD','DATABASE_NAME');
+    $con = mysqli_connect('HOST_NAME','USER_NAME','PASSWORD','DATABASE_NAME');
     ?>
     ```
 1. Also you need to get the [Here Maps API](https://developer.here.com) credentials and paste then in the files listed below.

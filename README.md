@@ -4,8 +4,23 @@
 # Quick Links
  1. [Prerequisites](#prerequisites)
  2. [Screenshots](#screenshots)
- 3. [Deployment](#deployment)
- 4. [Built With](#built-with)
- 5. [Contribute](#contribute)
- 6. [Authors](#authors)
- 7. [License](#license)
+ 3. [Demo](#Demo)
+ 4. [Deployment](#deployment)
+ 5. [Built With](#built-with)
+ 6. [Contribute](#contribute)
+ 7. [Authors](#authors)
+ 8. [License](#license)
+
+ # Prerequisites
+    1. To deploy YouTeach in your local machine you need Apache server installed and running in your machine as well as the MySql and PHP engine installed and running.
+
+    2. [Here Maps Javascript API](https://developer.here.com) credentials are required to run the map scripts.
+
+# Screenshots
+
+Some Screenshots of this application can we found under `/screenshots` directory.
+
+# Demo
+
+[Click Here](http://dotcom.epizy.com) to view the application.
+`The `

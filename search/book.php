@@ -33,7 +33,7 @@ $row = mysqli_fetch_assoc($results);
     </div>
     <div class="jumbotron">
       <div class="container">
-        <center><h3>To avail Stop the Bleed Training from Roman Roy, you need to fill up the form below. Once the instructor 
+        <center><h3>To avail Stop the Bleed Training from <?php echo "$row[name]"; ?>, you need to fill up the form below. Once the instructor 
           receives your application, he will get in touch with you.
         </h3></center>
 

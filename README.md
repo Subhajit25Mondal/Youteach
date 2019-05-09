@@ -21,10 +21,15 @@ Some Screenshots of this application can we found under `/screenshots` directory
 
 # Demo
 
-[Click Here](http://dotcom.epizy.com) to view the application.
-```
-Note: The demo server is registered under under free service plan. Thus, some features will be limited. 
-```
+
+**Note:**  The demo server is registered under free service plan. And unfortunately, it doesn't support `file_get_contents()` function.
+Thus, Auto detection of location isn't working. So, the default location has been set to [Kolkata, India](https://www.google.com/search?q=kolkata&oq=kolkata&aqs=chrome..69i57j69i60l2j69i61j69i60l2.1806j0j9&sourceid=chrome&ie=UTF-8). 
+If you are planning to deploy YouTeach to Cloud Server, then use premium hosting plans via [Hostinger](https://www.hostinger.in/), [Godaddy](https://in.godaddy.com/) etc. 
+
+
+[Click Here](http://dotcom.scienceontheweb.net/) for Demo.
+
+
 # Deployment
 ## Built With
 * HTML & CSS
